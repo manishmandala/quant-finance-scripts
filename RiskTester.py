@@ -7,7 +7,7 @@ import seaborn as sns
 # =========================================
 # Download Historical Data
 # =========================================
-tickers = ['AAPL', 'MSFT', 'TSLA', 'AMZN']
+tickers = ['NVDA', 'GOOGL', 'META', 'AMZN']
 
 # Pull Close prices (rows=dates, cols=tickers)
 data = yf.download(tickers, start='2022-01-01', end='2025-01-01')['Close']

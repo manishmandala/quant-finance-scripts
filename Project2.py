@@ -10,7 +10,9 @@ end_date = "2025-01-01"
 risk_free_rate = 0.04  # 4% annual risk-free rate
 
 # Data download
-data = yf.download(tickers, start=start_date, end=end_date)["Close"]
+# yfinance returns columns sorted alphabetically regardless of input order,
+# so re-order to match `tickers` before dropping into positional numpy arrays below.
+data = yf.download(tickers, start=start_date, end=end_date)["Close"][tickers]
 returns = data.pct_change().dropna()
 
 # Statistics
